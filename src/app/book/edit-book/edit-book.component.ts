@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BookService } from '../book.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -22,9 +22,9 @@ export class EditBookComponent implements OnInit {
     this.bookService.getById(id).subscribe((result) => {
       this.bookById = result;
       this.bookForm = new FormGroup({
-        title: new FormControl(this.bookById.title),
-        author: new FormControl(this.bookById.author),
-        description: new FormControl(this.bookById.description),
+        title: new FormControl(this.bookById.title, [Validators.required, Validators.minLength(10)]),
+        author: new FormControl(this.bookById.author, [Validators.required, Validators.minLength(10)]),
+        description: new FormControl(this.bookById.description, [Validators.required, Validators.minLength(100)]),
       });
     });
   }
