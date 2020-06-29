@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
+  }
+
+  search(event) {
+    const keywords = event.target.value;
+    this.searchService.searchInput.next(keywords);
   }
 
 }
