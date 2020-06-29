@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "books"
+    }
+  },
+  "defaultProject": "books",
+  "cli": {
+    "analytics": "da17a6ac-fc43-4ed5-bc59-bec037135204"
+  }
 }
